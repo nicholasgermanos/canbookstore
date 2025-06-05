@@ -8,12 +8,12 @@
 		<version>3.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.nickblogsite</groupId>
+	<groupId>com.ironick</groupId>
 	<artifactId>nickblog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-backend</name>
 	<packaging>war</packaging>
-	<description>Ironick</description>
+	<description>C.A.N. Book Store</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -83,7 +83,7 @@
     </dependencies>
 
 	<build>
-		<finalName>ironick</finalName>
+		<finalName>can_bookstore</finalName>
 		<plugins>
 			<!-- This plugin runs a series of executions that installs/builds npm project -->
 			<plugin>

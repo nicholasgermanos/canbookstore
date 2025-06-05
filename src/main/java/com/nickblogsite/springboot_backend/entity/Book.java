@@ -19,18 +19,11 @@ import lombok.Setter;
 @Builder
 @Entity
 @Table(name = "user")
-public class User {
+public class Book {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long isbn;
 
-	@Column(name = "first_name", nullable = false)
-	private String firstName;
-
-	@Column(name = "last_name", nullable = false)
-	private String lastName;
-	@Column(unique = true, nullable = false)
-	private String email;
-	private String password;
-	private String role;
+	@Column(name = "title", nullable = false)
+	private String title;
+	private String author;
 }

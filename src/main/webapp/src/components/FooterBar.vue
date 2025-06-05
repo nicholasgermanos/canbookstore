@@ -1,53 +1,34 @@
 <template>
-  <div class="footer-bar">
-    <div class="footer-content">
-      <div class="footer-links">
-        <router-link v-if="isLoggedIn()" to="/logout" class="fw-bold nav-link navbar-links">Logout</router-link>
-        <router-link v-if="isLoggedOut()" to="/login" class="fw-bold nav-link navbar-links">Login</router-link>
-        <router-link v-if="isLoggedOut()" to="/register"
-                     class="fw-bold nav-link navbar-links">Register
-        </router-link>
-        <router-link v-if="isAdmin()" to="/contribute"
-                     class="fw-bold nav-link navbar-links">Contribute
-        </router-link>
-        <router-link to="/about" class="fw-bold nav-link navbar-links">About</router-link>
-        <router-link to="/contact" class="fw-bold nav-link navbar-links">Contact</router-link>
-        <a href="https://github.com/nicholasgermanos/nickblog" target="_blank"
-           class="fw-bold nav-link navbar-links">See
-          my code</a>
-      </div>
-      <div class="newsletter-signup-container">
-        <h4>Get notified about new posts</h4>
-        <form class="newsletter-form">
-          <input v-model="email" placeholder="Email Address">
-          <button v-on:click="registerMailingList" type="submit" class="nick-button">Notify me</button>
-        </form>
-      </div>
-    </div>
-  </div>
+	<div class="footer-bar">
+		<div class="footer-content">
+			<div class="footer-links">
+				<router-link v-if="isLoggedIn()" to="/logout" class="fw-bold nav-link navbar-links">Logout</router-link>
+				<router-link v-if="isLoggedOut()" to="/login" class="fw-bold nav-link navbar-links">Login</router-link>
+				<router-link v-if="isLoggedOut()" to="/register" class="fw-bold nav-link navbar-links">Register
+				</router-link>
+				<router-link v-if="isAdmin()" to="/contribute" class="fw-bold nav-link navbar-links">Contribute
+				</router-link>
+				<router-link to="/about" class="fw-bold nav-link navbar-links">About</router-link>
+				<router-link to="/contact" class="fw-bold nav-link navbar-links">Contact</router-link>
+				<a href="https://github.com/nicholasgermanos/nickblog" target="_blank"
+					class="fw-bold nav-link navbar-links">See
+					my code</a>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
 
 import { isAdmin, isLoggedIn, isLoggedOut } from '@/utils/localStorageUtils';
-import MailingListService from '@/services/mailingListService';
 
 export default {
-  name: 'MenuBar',
-  methods: {
-    isAdmin,
-    isLoggedIn,
-    isLoggedOut,
-    registerMailingList() {
-      MailingListService.registerEmail( this.email );
-    }
-  },
-  data() {
-    return {
-      email: null
-    };
-  }
-
+	name: 'MenuBar',
+	methods: {
+		isAdmin,
+		isLoggedIn,
+		isLoggedOut
+	},
 };
 </script>
 
@@ -79,7 +60,7 @@ a:hover
 .footer-links
   display flex
   flex-direction column
-  align-items flex-start
+  align-items center 
   justify-content center
 
 .newsletter-signup-container

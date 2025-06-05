@@ -3,8 +3,8 @@ spring:
     name: springboot-backend
   datasource:
     password: ${SPRING_DATASOURCE_PASSWORD:password}
-    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/ironick_main?useSSL=false}
-    username: ${SPRING_DATASOURCE_USERNAME:ironick_backend_u}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/can_bookstore?useSSL=false}
+    username: ${SPRING_DATASOURCE_USERNAME:can_bookstore_u}
   jpa:
     hibernate:
       ddl-auto: update

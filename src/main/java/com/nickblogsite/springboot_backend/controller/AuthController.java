@@ -8,8 +8,4 @@ import lombok.*;
 @AllArgsConstructor
 @RequestMapping("/api")
 
-public class AuthController {
-
-//	@GetMapping("/login")
-//	public
-}
+public class AuthController {}
