@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ironick</groupId>
-	<artifactId>nickblog</artifactId>
+	<artifactId>canbookstore</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-backend</name>
 	<packaging>war</packaging>

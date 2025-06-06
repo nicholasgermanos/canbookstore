@@ -34,22 +34,24 @@ export default {
 };
 </script>
 
-<style lang="stylus">
-#app
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+<style scoped>
+#app {
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
 
-  margin-top: 56px;
-  min-height 100vh
+	margin-top: 56px;
+	min-height: 100vh;
 
-  display flex
-  flex 1 1 100%
+	display: flex;
+	flex: 1 1 100%;
 
-.main-content
-  display flex
-  flex-grow 1
-  width 100%
+}
 
+.main-content {
+	display: flex;
+	flex-grow: 1;
+	width: 100%;
+}
 </style>

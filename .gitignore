@@ -27,7 +27,7 @@ replay_pid*
 
 target/
 pom.xml.tag
-pom.xml.releaseBackup
+pom.xql.releaseBackup
 pom.xml.versionsBackup
 pom.xml.next
 release.properties
@@ -42,3 +42,13 @@ buildNumber.properties
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+# Node stuff
+*node_modules/
+*node/
+*dist/
+
+*.factorypath
+*.settings
+*.idea/
+tags

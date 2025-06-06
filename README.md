@@ -1,2 +1,2 @@
-# nickblog
-A blog article website
+# C.A.N. Book Store 
+A personal book tracking website
