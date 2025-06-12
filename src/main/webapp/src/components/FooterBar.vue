@@ -11,8 +11,7 @@
 				<router-link to="/about" class="fw-bold nav-link navbar-links">About</router-link>
 				<router-link to="/contact" class="fw-bold nav-link navbar-links">Contact</router-link>
 				<a href="https://github.com/nicholasgermanos/canbookstore" target="_blank"
-					class="fw-bold nav-link navbar-links">See
-					my code</a>
+					class="fw-bold nav-link navbar-links">See my code</a>
 			</div>
 		</div>
 	</div>
@@ -34,7 +33,7 @@ export default {
 
 <style lang="scss" scoped>
 a:hover {
-	mouse: pointer;
+	cursor: pointer;
 }
 
 .footer-bar {
