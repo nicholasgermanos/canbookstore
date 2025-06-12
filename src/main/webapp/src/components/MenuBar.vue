@@ -48,37 +48,55 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-.navbar
-  button, span, a
-    &:hover
-      transform: scale(1.05);
-      color: $theme-white;
+<style lang="scss" scoped>
+.navbar {
 
-    &:focus
-      color: $theme-white;
-    transition ease 0.2s
+	button,
+	span,
+	a {
+		&:hover {
+			transform: scale(1.05);
+			color: $theme-white;
+		}
 
-  background: $theme-dark;
+		&:focus {
+			color: $theme-white;
+			transition: ease 0.2s
+		}
+	}
 
-  .hamburger
-    border-color: $theme-white;
+	background: $theme-dark;
 
-  .hamburger:focus
-    box-shadow: none;
+	.hamburger {
+		border-color: $theme-white;
+	}
 
-.fullscreen-icon
-  margin-top 6px
-  margin-left 6px
-  a:hover
-    transform none
-    transition none
-  img
-    height 23px
+	.hamburger:focus {
+		box-shadow: none;
+	}
 
-    &:hover
-      cursor pointer
-      transform: scale(1.2)
-    transition ease 0.2s
 
+}
+
+.fullscreen-icon {
+	margin-top: 6px;
+	margin-left: 6px;
+
+	a:hover {
+		transform: none;
+		transition: none;
+
+		img {
+
+			height: 23px;
+		}
+	}
+
+	&:hover {
+		transition: ease 0.2s;
+		cursor: pointer;
+		transform: scale(1.2);
+	}
+
+}
 </style>

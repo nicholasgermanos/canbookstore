@@ -10,7 +10,7 @@
 				</router-link>
 				<router-link to="/about" class="fw-bold nav-link navbar-links">About</router-link>
 				<router-link to="/contact" class="fw-bold nav-link navbar-links">Contact</router-link>
-				<a href="https://github.com/nicholasgermanos/nickblog" target="_blank"
+				<a href="https://github.com/nicholasgermanos/canbookstore" target="_blank"
 					class="fw-bold nav-link navbar-links">See
 					my code</a>
 			</div>
@@ -32,97 +32,119 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-a:hover
-  mouse pointer
+<style lang="scss" scoped>
+a:hover {
+	mouse: pointer;
+}
 
-.footer-bar
-  display flex
-  justify-content space-evenly
-  position relative
-  padding 50px 10% 40px 10%
-  background $theme-dark
+.footer-bar {
+	display: flex;
+	justify-content: space-evenly;
+	position: relative;
+	padding: 50px 10% 40px 10%;
+	background: $theme-dark;
+}
 
-  a
-    padding 3px
+a {
+	padding: 3px;
+}
 
-  a:focus, a:hover
-    color $theme-white
+a:focus,
+a:hover {
+	color: $theme-white;
+}
 
-.footer-content
-  max-width 100%
-  min-width 100%
-  display flex
-  flex-wrap wrap-reverse
-  justify-content space-around
-  z-index 1
+.footer-content {
+	max-width: 100%;
+	min-width: 100%;
+	display: flex;
+	flex-wrap: wrap-reverse;
+	justify-content: space-around;
+	z-index: 1;
+}
 
-.footer-links
-  display flex
-  flex-direction column
-  align-items center 
-  justify-content center
+.footer-links {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
 
-.newsletter-signup-container
-  display flex
-  flex-direction column
-  align-items flex-start
-  justify-content start
-  width 50%
+.newsletter-signup-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: start;
+	width: 50%;
+}
 
-  h4
-    color $theme-white
-    padding 5px
+h4 {
+	color: $theme-white;
+	padding: 5px;
+}
 
-  .newsletter-form
-    display flex
-    flex-wrap nowrap
-    width 100%
-    justify-content start
-    margin-bottom 30px
+.newsletter-form {
+	display: flex;
+	flex-wrap: nowrap;
+	width: 100%;
+	justify-content: start;
+	margin-bottom: 30px;
+}
 
-    input
-      height 40px
-      width 80%
-      max-width 400px
-      padding-left 10px
-      margin-right 15px
-      margin-bottom 10px
-      box-shadow: 1px 1px 0 0 $theme-white, 2px 2px 0 0 $theme-white, 3px 3px 0 0 $theme-white, 4px 4px 0 0 $theme-white, 5px 5px 0 0 $theme-white;
-      border 3px $theme-dark solid
-      background-color $theme-white
-      color $theme-dark
+input {
+	height: 40px;
+	width: 80%;
+	max-width: 400px;
+	padding-left: 10px;
+	margin-right: 15px;
+	margin-bottom: 10px;
+	box-shadow: 1px 1px 0 0 $theme-white, 2px 2px 0 0 $theme-white, 3px 3px 0 0 $theme-white, 4px 4px 0 0 $theme-white, 5px 5px 0 0 $theme-white;
+	;
+	border: 3px $theme-dark solid;
+	background-color: $theme-white;
+	color: $theme-dark;
+}
 
-    button
-      color $theme-dark
-      border-color $theme-dark
-      box-shadow: 1px 1px 0 0 $theme-white, 2px 2px 0 0 $theme-white, 3px 3px 0 0 $theme-white, 4px 4px 0 0 $theme-white, 5px 5px 0 0 $theme-white;
+button {
+	color: $theme-dark;
+	border-color: $theme-dark;
+	box-shadow: 1px 1px 0 0 $theme-white, 2px 2px 0 0 $theme-white, 3px 3px 0 0 $theme-white, 4px 4px 0 0 $theme-white, 5px 5px 0 0 $theme-white;
+}
 
-@media (max-width: $grid-breakpoint-md)
-  .footer-bar
-    padding 10px
+@media (max-width: $grid-breakpoint-md) {
+	.footer-bar {
+		padding: 10px;
+	}
+}
 
-  .footer-links
-    align-items center
-    padding 0
+.footer-links {
+	align-items: center;
+	padding: 0;
+}
 
-  .footer-content
-    flex-direction column-reverse
-    max-width 100%
-    min-width 100%
-    margin 0
-    margin-top 50px
+.footer-content {
+	flex-direction: column-reverse;
+	max-width: 100%;
+	min-width: 100%;
+	margin: 0;
+	margin-top: 50px;
+}
 
-  .newsletter-signup-container
-    align-items center
-    width 100%
+.newsletter-signup-container {
+	align-items: center;
+	width: 100%;
+}
 
-    .newsletter-form
-      justify-content center
-      flex-wrap wrap
+.newsletter-form {
+	justify-content: center;
+	flex-wrap: wrap;
+}
 
-@media (min-width: $grid-breakpoint-3xl)
-  .footer-content
-    max-width 70%
-    min-width 70%
+@media (min-width: $grid-breakpoint-3xl) {}
+
+.footer-content {
+	max-width: 70%;
+	min-width: 70%;
+
+}
 </style>

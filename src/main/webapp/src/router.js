@@ -4,6 +4,7 @@ import HomePage from '@/views/HomePage.vue';
 import LoginPage from '@/views/LoginPage.vue';
 import RegisterPage from '@/views/RegisterPage.vue';
 import LogoutPage from '@/views/LogoutPage.vue';
+import ToBeRead from './views/ToBeRead.vue';
 
 const routes = [
 
@@ -13,7 +14,7 @@ const routes = [
 	{ name: 'register', path: '/register', component: RegisterPage },
 	{ name: 'error', path: '/error', component: HomePage },
 
-	{ name: 'tbr', path: '/tbr', component: HomePage },
+	{ name: 'tbr', path: '/tbr', component: ToBeRead },
 	{ name: 'library', path: '/library', component: HomePage },
 	{ name: 'stats', path: '/stats', component: HomePage }
 ];
@@ -29,7 +30,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	const publicPages = ['root', 'login', 'register', 'error'];
+	const publicPages = ['root', 'login', 'register', 'error', 'tbr'];
 	const authRequired = !publicPages.includes(to.name);
 	const loggedIn = localStorage.getItem('user');
 
