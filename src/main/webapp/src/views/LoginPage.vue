@@ -37,7 +37,7 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 h6 {
 	font-size: 12px;
 }

@@ -5,7 +5,7 @@ module.exports = {
 	chainWebpack: config => {
 		const types = ['vue-modules', 'vue', 'normal-modules', 'normal'];
 		types.forEach(type => {
-			addStyleResource(config.module.rule('scss').oneOf(type))
+			addStyleResource(config.module.rule('stylus').oneOf(type))
 		});
 	},
 	devServer: {
@@ -23,11 +23,11 @@ module.exports = {
 };
 
 function addStyleResource(rule) {
-	rule.use('sass-loader')
+	rule.use('style-resources-loader')
 		.loader('style-resources-loader')
 		.options({
 			patterns: [
-				path.resolve(__dirname, './src/styles/*.scss')
+				path.resolve(__dirname, './src/styles/main.styl')
 			],
 		});
 }

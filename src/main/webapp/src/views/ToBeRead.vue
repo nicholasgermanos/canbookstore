@@ -1,33 +1,27 @@
 <template>
 	<div>
 
-		<p>TEST HERE</p>
-		<button v-on:click="test">test</button>
 	</div>
 </template>
 
 <script>
-import OpenLibraryService from '@/services/openLibraryService.js'
 export default {
 	name: "ToBeRead",
 	data() {
 		return {
+			searchTerm: undefined,
 			bookDetails: undefined
 		}
 	},
 	methods: {
-		test() {
-			OpenLibraryService.lookupBook().then(response => {
-				this.bookDetails = response.data
-			})
-		}
+
 	}
 }
 </script>
 
-<style lang="scss" scoped>
-p {
-	margin-top: 90px;
+<style lang="stylus" scoped>
+form {
+	margin-top: 500px;
 	color: black;
 }
 </style>

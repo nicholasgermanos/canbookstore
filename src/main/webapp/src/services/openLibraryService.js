@@ -1,17 +1,13 @@
-import axios, { AxiosHeaders } from 'axios';
-const OPEN_LIBRARY_URL = "https://openlibrary.org/search.json?q="
+import axios from 'axios';
+
+axios.defaults.baseURL = "/api/"
+
+const GET_BOOK_WITH_SEARCH_TERM_URL = "booksWithSearchTerm/"
 
 class OpenLibraryService {
 
-	lookupBook(searchTerm) {
-		searchTerm = "Hunger Games"
-		const headers = new Headers({
-			"User-Agent": "MyAppName/1.0 (myemail@example.com)"
-		})
-
-		const axios_headers = new AxiosHeaders(headers)
-
-		return axios.get(OPEN_LIBRARY_URL + searchTerm, axios_headers)
+	async lookupBook(searchTerm) {
+		return axios.get(GET_BOOK_WITH_SEARCH_TERM_URL + searchTerm)
 	}
 
 }

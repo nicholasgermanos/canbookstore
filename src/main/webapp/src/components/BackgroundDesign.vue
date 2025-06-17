@@ -12,7 +12,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="stylus">
 .grid {
 	position: fixed;
 	display: flex;

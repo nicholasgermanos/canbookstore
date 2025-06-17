@@ -1,7 +1,7 @@
 <template>
 	<BackgroundDesign id="stars" />
 	<MenuBar :key="menuBarKey" />
-	<div v-if="!isFullScreen" class="newlines">
+	<div class="newlines">
 		<router-view class="main-content" />
 		<FooterBar />
 	</div>

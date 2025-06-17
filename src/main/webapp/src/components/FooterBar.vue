@@ -1,5 +1,16 @@
 <template>
 	<div class="footer-bar">
+		<div v-if="bookDetails">
+			<div v-for="book in bookDetails.docs" v-bind:key="book.key">
+
+				<p>Author : {{ book.author_name }}</p>
+			</div>
+		</div>
+		<div class="search-bar-container">
+			<form @submit.prevent="searchByTerm">
+				<input v-model="searchTerm" id="search-bar" />
+			</form>
+		</div>
 		<div class="footer-content">
 			<div class="footer-links">
 				<router-link v-if="isLoggedIn()" to="/logout" class="fw-bold nav-link navbar-links">Logout</router-link>
@@ -20,18 +31,33 @@
 <script>
 
 import { isAdmin, isLoggedIn, isLoggedOut } from '@/utils/localStorageUtils';
+import openLibraryService from '@/services/openLibraryService';
+
 
 export default {
 	name: 'MenuBar',
 	methods: {
 		isAdmin,
 		isLoggedIn,
-		isLoggedOut
+		isLoggedOut,
+		async searchByTerm() {
+			await openLibraryService.lookupBook(this.searchTerm).then(response =>
+				this.bookDetails = response.data
+			)
+		}
+
 	},
+	data() {
+		return {
+			searchTerm: undefined,
+			bookDetails: undefined
+		}
+	},
+
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 a:hover {
 	cursor: pointer;
 }
@@ -98,7 +124,6 @@ input {
 	margin-right: 15px;
 	margin-bottom: 10px;
 	box-shadow: 1px 1px 0 0 $theme-white, 2px 2px 0 0 $theme-white, 3px 3px 0 0 $theme-white, 4px 4px 0 0 $theme-white, 5px 5px 0 0 $theme-white;
-	;
 	border: 3px $theme-dark solid;
 	background-color: $theme-white;
 	color: $theme-dark;
