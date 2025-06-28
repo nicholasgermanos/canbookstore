@@ -7,7 +7,7 @@ export function getLoggedIn() {
 		return undefined;
 	}
 
-	return JSON.parse( user )
+	return JSON.parse(user)
 }
 
 export function getLoggedInID() {

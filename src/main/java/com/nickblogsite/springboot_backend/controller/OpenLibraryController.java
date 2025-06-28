@@ -4,9 +4,14 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
+import java.util.stream.Collectors;
 
 import org.springframework.web.bind.annotation.*;
 import lombok.*;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URI;
 
 @RestController
@@ -19,25 +24,38 @@ public class OpenLibraryController {
 	public String getBookData(@PathVariable final String searchTerm) {
 		try {
 
-			final String searchTermParsed = searchTerm.replaceAll(" ", "+");
-			HttpRequest request = HttpRequest.newBuilder()
-					.uri(new URI("https://openlibrary.org/search.json?q=" + searchTermParsed))
-					.header("User-Agent", "CanBookStore/1.0 (ngermanos97@gmail.com)")
-					.GET()
-					.build();
+			// UNCOMMENT fOR REAL RESULTS
 
-			HttpResponse<String> response = HttpClient.newBuilder()
-					.build()
-					.send(request, BodyHandlers.ofString());
+			// final String searchTermParsed = searchTerm.replaceAll(" ", "+");
+			// HttpRequest request = HttpRequest.newBuilder()
+			// .uri(new URI("https://openlibrary.org/search.json?q=" + searchTermParsed))
+			// .header("User-Agent", "CanBookStore/1.0 (ngermanos97@gmail.com)")
+			// .GET()
+			// .build();
 
-			return response.body();
+			// HttpResponse<String> response = HttpClient.newBuilder()
+			// .build()
+			// .send(request, BodyHandlers.ofString());
 
+			return testData();
 		} catch (Exception e) {
-			// Do nothing
+			System.out.println("Something went wrong");
 		}
+		System.out.println("Something went wrong 2");
 
 		return "";
 
 	}
 
+	private String testData() {
+		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+		InputStream is = classLoader.getResourceAsStream("test_hunger_games.json");
+		final InputStreamReader isr = new InputStreamReader(is);
+		final BufferedReader br = new BufferedReader(isr);
+		String text = br
+				.lines()
+				.collect(Collectors.joining("\n"));
+
+		return text;
+	}
 }

@@ -1,17 +1,44 @@
 <template>
-	<BackgroundDesign id="stars" />
-	<MenuBar :key="menuBarKey" />
-	<div class="newlines">
-		<router-view class="main-content" />
-		<FooterBar />
+
+	<!--	<MenuBar :key="menuBarKey" /> -->
+
+	<BackgroundDesign class="paper" />
+	<BackgroundDesign v-if="pageMedium || pageLong" class="paper" />
+	<BackgroundDesign class="paper" />
+
+	<div class="newlines crimson-text-regular">
+		<div class="main-content">
+			<div class="top-spacer"></div>
+			<div v-if="searchMode" id="search-mode">
+				<BookDetails v-if="showBookDetails" :book="selectedBook" />
+
+				<p v-if="showSearchResults && searchResults" class="title">Search Results</p>
+				<div class="blank-line"></div>
+				<SearchResults v-if="showSearchResults" @show-searched-book="showSearchedBook"
+					:search-data="searchResults" />
+			</div>
+		</div>
+
 	</div>
+
+	<div class="search-bar-container">
+		<form @submit.prevent="searchByTerm">
+			<input placeholder="Search..." v-model="searchQuery" v-on:focus="openSearchResults" id="search-bar" />
+		</form>
+	</div>
+
+	<FooterBar />
+
+
 </template>
 
 <script>
-import MenuBar from '@/components/MenuBar.vue';
 import BackgroundDesign from '@/components/BackgroundDesign.vue';
 import FooterBar from '@/components/FooterBar.vue';
+import openLibraryService from './services/openLibraryService';
 import { ref } from 'vue';
+import SearchResults from './views/SearchResults.vue';
+import BookDetails from './views/BookDetails.vue';
 
 export default {
 	name: 'App',
@@ -27,31 +54,119 @@ export default {
 		};
 	},
 	components: {
+		SearchResults,
+		BookDetails,
 		BackgroundDesign,
-		MenuBar,
 		FooterBar
+	},
+	data() {
+		return {
+			// Page lengths
+			pageMedium: false,
+			pageLong: false,
+
+			// Show sections
+			showSearchResults: false,
+			showBookDetails: false,
+			searchMode: false,
+
+			// Data
+			searchQuery: undefined,
+			searchResults: undefined,
+			selectedBook: undefined,
+		}
+	},
+	methods: {
+		async searchByTerm() {
+			this.openSearchResults()
+			await openLibraryService.lookupBook(this.searchQuery).then(response => {
+				if (response !== undefined) {
+					console.log(response.data)
+					this.searchResults = response.data
+				}
+			})
+
+		},
+		showSearchedBook(book) {
+			console.log(book)
+			this.openBookDetails()
+			this.selectedBook = book
+		},
+		closeSearchResults() {
+			this.showSearchResults = false
+		},
+		openSearchResults() {
+			this.enableSearchMode()
+			this.closeBookDetails()
+			this.showSearchResults = true
+		},
+		openBookDetails() {
+			this.closeSearchResults()
+			this.showBookDetails = true
+		},
+		closeBookDetails() {
+			this.showBookDetails = false
+		},
+		enableSearchMode() {
+			this.searchMode = true
+		},
+		disableSearchMode() {
+			this.searchMode = false
+		}
 	}
 };
 </script>
 
-<style scoped>
+<style lang="styl">
 #app {
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
 
-	margin-top: 56px;
 	min-height: 100vh;
 
 	display: flex;
 	flex: 1 1 100%;
 
+	flex-direction: column;
+
+	height: fit-content;
+}
+
+.paper {
+	margin-bottom: 32px;
+}
+
+.grid {
+	filter: drop-shadow(-4px 1px 3px #000);
 }
 
 .main-content {
 	display: flex;
+	position: absolute;
+	top: 0px;
+	min-height: 100%;
+	line-height: 32px;
+	padding-left: 16px;
+}
+
+#search-mode {
+}
+
+.search-bar-container {
+	display: flex;
+	flex-direction: column;
 	flex-grow: 1;
-	width: 100%;
+	justify-content: center;
+	background: $theme-brown;
+	position: sticky;
+	height: 60px;
+	bottom: 0;
+	padding: 10px
+	input {
+		height: 40px;
+		width: calc(100% - 10px);
+		padding-left: 15px;
+	}
 }
 </style>

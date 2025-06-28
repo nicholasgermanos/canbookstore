@@ -65,7 +65,7 @@ export default {
 		}
 	}
 
-	background: $theme-dark;
+	background: $theme-brown;
 
 	.hamburger {
 		border-color: $theme-white;

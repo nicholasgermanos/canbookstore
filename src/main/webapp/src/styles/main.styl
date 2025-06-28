@@ -1,13 +1,19 @@
 /* https://getcssscan.com/css-buttons-examples (button style) */
+/* Lengths */
+$vertical-rule-left = 100px;
+$vertical-rule-phone = 100px;
+$top-of-page = 40px;
+$bottom-of-page = 45px;
+$space-between-pages = 32px;
 
 /* Colour scheme 2 */
+$theme-background = #FAF9F6;
 $theme-black = #181718;
-$theme-dark = #EBE7DA;
+$theme-beige= #EBE7DA;
 $theme-dark-ish = #4e535c;
 $theme-grey-ish = #393E46;
 $theme-brown = #948979;
-$theme-white = black;
-$theme-white-calm = #d5d5d5;
+$theme-white-calm = #e5e5e5;
 
 $grid-breakpoint-xs = 0;
 $grid-breakpoint-sm = 576px;
@@ -17,33 +23,64 @@ $grid-breakpoint-xl = 1200px;
 $grid-breakpoint-xxl = 1400px;
 $grid-breakpoint-3xl = 2000px;
 
-/* Phone specific css can go under this */
-@media (max-width: $grid-breakpoint-sm) {
-  button {
-    padding: 0.25em 0.75em;
-  }
+// Fonts 
 
+.crimson-text-regular {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-/* Tablet / browser specific css can go under this */
-@media (max-width: $grid-breakpoint-md) {
-  .newlines {
-    width: 100vw;
-    height: 100vh;
-    padding-top: 30px;
-  }
-
-  .main-content {
-    justify-content: center;
-  }
+.crimson-text-semibold {
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  font-style: normal;
 }
+
+.crimson-text-bold {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.crimson-text-regular-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.crimson-text-semibold-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.crimson-text-bold-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+// Global styles
 
 .newlines {
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  padding-top: 30px;
+  padding-left: $vertical-rule-left;
+  flex: 1 1 100%;
+  flex-grow: 1;
+  font-size: 20px;
+
+  p {
+	padding: 0;
+	margin: 0;
+  }
+
+  .top-spacer {
+	margin-top: $top-of-page;
+  }
 }
 
 .nick-button {
@@ -122,5 +159,45 @@ textarea {
 
 /* Nav Links */
 .navbar-links {
-  color: $theme-white;
+  color: $theme-white-calm;
+}
+
+
+/* Paper Text */
+.title {
+	line-height: 64px;
+	font-size: 60px;
+	margin-bottom: 0;
+}
+
+.blank-line {
+	height: 32px;
+}
+
+p {
+	margin: 0;
+}
+
+/* Phone specific css can go under this */
+@media (max-width: $grid-breakpoint-sm) {
+  button {
+    padding: 0.25em 0.75em;
+  }
+
+  .newlines {
+	  padding-left: 0;
+  }
+}
+
+/* Tablet / browser specific css can go under this */
+@media (max-width: $grid-breakpoint-md) {
+  .newlines {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 30px;
+  }
+
+  .main-content {
+    justify-content: center;
+  }
 }
