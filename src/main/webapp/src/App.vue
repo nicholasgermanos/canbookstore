@@ -1,10 +1,6 @@
 <template>
 
-	<!--	<MenuBar :key="menuBarKey" /> -->
-
-	<BackgroundDesign class="paper" />
-	<BackgroundDesign v-if="pageMedium || pageLong" class="paper" />
-	<BackgroundDesign class="paper" />
+	<MenuBar :key="menuBarKey" />
 
 	<div class="newlines crimson-text-regular">
 		<div class="main-content">
@@ -33,7 +29,7 @@
 </template>
 
 <script>
-import BackgroundDesign from '@/components/BackgroundDesign.vue';
+import MenuBar from './components/MenuBar.vue';
 import FooterBar from '@/components/FooterBar.vue';
 import openLibraryService from './services/openLibraryService';
 import { ref } from 'vue';
@@ -54,9 +50,9 @@ export default {
 		};
 	},
 	components: {
+		MenuBar,
 		SearchResults,
 		BookDetails,
-		BackgroundDesign,
 		FooterBar
 	},
 	data() {
@@ -142,15 +138,9 @@ export default {
 }
 
 .main-content {
-	display: flex;
-	position: absolute;
-	top: 0px;
-	min-height: 100%;
 	line-height: 32px;
 	padding-left: 16px;
-}
-
-#search-mode {
+	margin-top: 85px;
 }
 
 .search-bar-container {
@@ -160,7 +150,8 @@ export default {
 	justify-content: center;
 	background: $theme-brown;
 	position: sticky;
-	height: 60px;
+	min-height: 60px;
+	max-height: 60px;
 	bottom: 0;
 	padding: 10px
 	input {
@@ -169,4 +160,12 @@ export default {
 		padding-left: 15px;
 	}
 }
+
+@media (max-width: $grid-breakpoint-sm) {
+	.main-content {
+		margin-top: 20px;
+		padding: 20px;
+	}
+}
+
 </style>

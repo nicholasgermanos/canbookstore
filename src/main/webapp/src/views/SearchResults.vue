@@ -35,7 +35,8 @@ export default {
 }
 </script>
 
-<style lang="styl">
+<style lang="styl" scoped>
+
 .book-shelf {
 	margin-top: 12px;
 	display: flex;

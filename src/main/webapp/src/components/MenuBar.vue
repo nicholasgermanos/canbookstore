@@ -68,8 +68,14 @@ export default {
 	background: $theme-brown;
 
 	.hamburger {
-		border-color: $theme-white;
+		border-style: none;
+		width: 50px;
 	}
+
+	.button {
+		margin: 0;
+	}
+
 
 	.hamburger:focus {
 		box-shadow: none;
