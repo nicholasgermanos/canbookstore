@@ -1,11 +1,11 @@
 <template>
 	<div class="book-shelf" v-if="this.$props.searchData">
-		<div v-for="book in this.$props.searchData.docs" v-bind:key="book.key">
-			<div v-on:click="goToBook(book)" class="book-container">
+		<div v-for="book in this.$props.searchData.data.search.results.hits" v-bind:key="book.key">
+			<div v-on:click="goToBook(book.document)" class="book-container">
 				<img class="cover-image" src="../assets/the-hunger-games.jpg">
 				<div class="text-details">
-					<p class="book-title">{{ book.title }}</p>
-					<p>by {{ getFormattedAuthorNames(book.author_name) }}</p>
+					<p class="book-title">{{ book.document.title }}</p>
+					<p>by {{ getFormattedAuthorNames(book.document.author_names ) }}</p>
 				</div>
 			</div>
 		</div>

@@ -4,7 +4,6 @@
 
 	<div class="newlines crimson-text-regular">
 		<div class="main-content">
-			<div class="top-spacer"></div>
 			<div v-if="searchMode" id="search-mode">
 				<BookDetails v-if="showBookDetails" :book="selectedBook" />
 
@@ -70,6 +69,10 @@ export default {
 			searchQuery: undefined,
 			searchResults: undefined,
 			selectedBook: undefined,
+			
+			// Client Experience
+			searchScrollX: 0,
+			searchScrollY: 0,
 		}
 	},
 	methods: {
@@ -85,6 +88,7 @@ export default {
 		},
 		showSearchedBook(book) {
 			console.log(book)
+			this.scrollToTop()
 			this.openBookDetails()
 			this.selectedBook = book
 		},
@@ -95,6 +99,7 @@ export default {
 			this.enableSearchMode()
 			this.closeBookDetails()
 			this.showSearchResults = true
+			this.scrollToSearchResults()
 		},
 		openBookDetails() {
 			this.closeSearchResults()
@@ -108,6 +113,21 @@ export default {
 		},
 		disableSearchMode() {
 			this.searchMode = false
+		},
+		scrollToTop() {
+			console.log("topped")
+			this.recordSearchScroll()
+			window.scrollTo({top: 0, left: 0, behavior: "instant"})
+		},
+		recordSearchScroll() {
+			this.searchScrollX = window.pageXOffset
+			this.searchScrollY = window.pageYOffset
+			console.log(this.searchScrollX)
+			console.log(this.searchScrollY)
+		},
+		scrollToSearchResults() {
+			// not working
+			window.scrollBy(this.searchScrollX, this.searchScrollX)
 		}
 	}
 };

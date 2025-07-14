@@ -12,6 +12,9 @@ spring:
     multipart:
       max-file-size: 5MB
       max-request-size: 10MB
+  graphql:
+    graphiql:
+      enabled: true
 
 server:
   error:

@@ -4,10 +4,13 @@
 			<div class="cover-image-container">
 				<img class="cover-image" src="../assets/the-hunger-games.jpg">
 			</div>
-			<div class="text-details">
+			<div class="text-details-short">
 				<p class="title">{{ book.title }}</p>
-				<p class="author">by {{ getFormattedAuthorNames(book.author_name) }}</p>
+				<p class="author">by {{ getFormattedAuthorNames(book.author_names) }}</p>
 			</div>
+		</div>
+		<div class="text-details-long">
+			<p class="description">{{book.description}}</p>
 		</div>
 	</div>
 </template>
@@ -36,6 +39,7 @@ export default {
 	text-align: left;
 	width: 100%;
 	line-height: 32px;
+	padding: 0 32px 0 32px;
 }
 
 .main-details {
@@ -44,7 +48,11 @@ export default {
 	flex-wrap: wrap-reverse;
 }
 
-.text-details {
+.text-details-short {
+	margin-bottom: 32px;
+}
+
+.text-details-long {
 	margin-bottom: 32px;
 }
 
@@ -57,6 +65,7 @@ export default {
 	min-height: 13%;
 	min-width: 6%;
 	margin-right: 64px;
+	margin-bottom: 32px;
 }
 
 @media (max-width: $grid-breakpoint-sm) {
