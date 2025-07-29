@@ -1,0 +1,3 @@
+{
+    "query": "{\n  search(query: \"{{replaceme}}\", query_type: \"books\") {\n    results\n  }\n}\n"
+}
